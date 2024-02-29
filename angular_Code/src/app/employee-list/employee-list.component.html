@@ -1,0 +1,24 @@
+<div class="container">
+    <h2> Employee List </h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let employee of employees">
+                <tr>
+                <!-- ngfor is similar to for loop used for iterating over a length of array -->
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.emailid}}</td>
+                <td><button (click)="removeemployee(employee.id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
