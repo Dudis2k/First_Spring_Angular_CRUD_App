@@ -10,18 +10,7 @@ export class EmployeeListComponent {
   employees:Employee[];
   employee: Employee = new Employee();
   constructor(private empService:EmployeeServiceService){
-    // this.employees=[
-    //   {
-    //     "id":1,
-    //     "name":"Sid",
-    //     "mail":"Sid@gmail.com"
-    //   },
-    //   {
-    //     "id":2,
-    //     "name":"Gregor",
-    //     "mail":"Gregor@gmail.com"
-    //   }
-    // ];
+    
   }
   ngOnInit():void{
     this.getEmployees();

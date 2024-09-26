@@ -8,11 +8,16 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CommonModule } from '@angular/common';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeSalaryComponent } from './employee-salary/employee-salary.component';
+import { LoginmoduleComponent } from './loginmodule/loginmodule.component';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
+    LoginmoduleComponent,
     AddEmployeeComponent,
+    EmployeeSalaryComponent,
+    LoginmoduleComponent,
   ],
   imports: [
     CommonModule,

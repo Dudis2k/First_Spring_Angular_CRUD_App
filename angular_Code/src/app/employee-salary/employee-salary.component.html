@@ -1,0 +1,22 @@
+<div class="container">
+    <h2> Employee List </h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let emp_pay of emp_pays">
+                <tr>
+                <!-- ngfor is similar to for loop used for iterating over a length of array -->
+                <td>{{emp_pay.id}}</td>
+                <td>{{emp_pay.name}}</td>
+                <td>{{emp_pay.salary}}</td>
+            </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

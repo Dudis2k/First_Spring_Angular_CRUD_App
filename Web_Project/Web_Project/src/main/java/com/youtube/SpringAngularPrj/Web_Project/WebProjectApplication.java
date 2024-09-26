@@ -23,13 +23,5 @@ public class WebProjectApplication {
 
 		SpringApplication.run(WebProjectApplication.class, args);
 	}
-//	@Bean
-//	CommandLineRunner init(EmployeeRepository employeeRepo) {
-//		return args -> {
-//			Stream.of("John", "Julie", "Jennifer", "Helen", "Rachel").forEach(name -> {
-//				Employee emp = new Employee(name, name+"@gmail.com");
-//				employeeRepo.save(emp);
-//			});
-//		};
-//	}
+
 }

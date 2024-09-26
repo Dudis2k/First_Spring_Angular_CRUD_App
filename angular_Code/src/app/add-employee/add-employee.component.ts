@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Employee } from '../employee';
 import { EmployeeServiceService } from '../employee-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -9,8 +10,7 @@ import { EmployeeServiceService } from '../employee-service.service';
 })
 export class AddEmployeeComponent {
   employee: Employee = new Employee();
-  constructor(private employeeService: EmployeeServiceService){
-
+  constructor(private employeeService: EmployeeServiceService, private router:Router){
   }
 
   ngOnInit(): void{}
@@ -18,6 +18,7 @@ export class AddEmployeeComponent {
   saveEmployee(){
     this.employeeService.createemp(this.employee).subscribe(data =>{
       console.log(data);
+      this.router.navigate(['/employees']);
     },
     error => console.log(this.employee));
   }

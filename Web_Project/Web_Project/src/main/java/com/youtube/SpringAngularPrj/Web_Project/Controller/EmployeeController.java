@@ -1,9 +1,11 @@
 package com.youtube.SpringAngularPrj.Web_Project.Controller;
 
+import com.youtube.SpringAngularPrj.Web_Project.Model.Employee_Salary;
 import com.youtube.SpringAngularPrj.Web_Project.Model.Employee;
 import com.youtube.SpringAngularPrj.Web_Project.new_repo.EmployeeRepository;
 import com.youtube.SpringAngularPrj.Web_Project.Exception.ResourceNotFoundException;
 //import com.youtube.SpringAngularPrj.Web_Project.repository.EmployeeRepository;
+import com.youtube.SpringAngularPrj.Web_Project.new_repo.Emplpyeepayrepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository empRepository;
+
+    @Autowired
+    private Emplpyeepayrepo emppayrepo;
 
     @GetMapping("/allemployees")
     public List<Employee> getAllEmployees(){
@@ -41,8 +46,18 @@ public class EmployeeController {
     }
 
     @GetMapping("/search/{id}")
-    public String search(@PathVariable int id){
-        return empRepository.searchuser(id);
+    public Employee search(@PathVariable int id){
+        try {
+            return empRepository.searchuser(id);
+        }
+        catch(ResourceNotFoundException res){
+            throw new ResourceNotFoundException("Employee not found");
+        }
+    }
+
+    @GetMapping("/salary")
+    public List<Employee_Salary> getEmp_salary(){
+        return emppayrepo.findAll();
     }
 
     @DeleteMapping("/delete/{id}")
@@ -55,4 +70,11 @@ public class EmployeeController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
+
+    @PutMapping("/alter")
+    public List<Employee> alter_Emp(long id){
+
+        return this.getAllEmployees();
+    }
+
 }
